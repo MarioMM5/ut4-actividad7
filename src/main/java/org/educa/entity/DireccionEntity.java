@@ -3,11 +3,12 @@ package org.educa.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 @Entity
 @Table(name = "direccion")
 @Data
-public class DireccionEntity {
+public class DireccionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

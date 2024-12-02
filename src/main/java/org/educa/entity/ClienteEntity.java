@@ -3,13 +3,14 @@ package org.educa.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
 @Table(name = "cliente")
 @Data
-public class ClienteEntity {
+public class ClienteEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -31,6 +32,6 @@ public class ClienteEntity {
     @Column(name = "fec_mod")
     private Timestamp fecMod;
 
-    @OneToMany(mappedBy = "direccion")
+    @OneToMany(mappedBy = "cliente",cascade = CascadeType.ALL)
     private List<DireccionEntity> direcciones;
 }
